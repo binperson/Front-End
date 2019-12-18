@@ -75,8 +75,8 @@
 	}
 
 	function defineReactive(obj, key, val) {
-  	// 递归子属性
-  	observe(val)
+		// 递归子属性
+		observe(val)
 		let dp = new Dep()
 		Object.defineProperty(obj, key, {
 			enumerable: true,
