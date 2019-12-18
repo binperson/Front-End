@@ -1,6 +1,6 @@
 ### 响应式原理
 
-### 版本1
+#### 版本1
 
 ```html
 <!DOCTYPE html>
@@ -102,4 +102,19 @@
 	}
   </script>
 </html>
+```
+
+#### Vue.delete( target, key )
+
+- 用法：删除对象的属性。如果对象是响应式的，确保删除能触发更新视图。这个方法主要用于避开 Vue 不能检测到属性被删除的限制，但是你应该很少会使用它。目标对象不能是一个 Vue 实例或 Vue 实例的根数据对象。
+
+```js
+data: {
+	nameList: {
+		id: 1,
+		name: 'xxx'
+	}
+}
+delete this.nameList.name // js方法
+Vue.delete(this.nameList, 'name') // vue方法
 ```
