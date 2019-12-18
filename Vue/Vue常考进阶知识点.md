@@ -42,10 +42,13 @@
 			// 然后触发属性的 getter 添加监听
 			// 最后将 Dep.target 置空
 			Dep.target = this
+			console.log('Dep.target 指向自己')
 			this.cb = cb
 			this.obj = obj
 			this.key = key
+			console.log('触发属性的 getter 添加监听')
 			this.value = obj[key]
+			console.log('最后将 Dep.target 置空')
 			Dep.target = null
 		}
 		update() {
@@ -75,8 +78,8 @@
 	}
 
 	function defineReactive(obj, key, val) {
-		// 递归子属性
-		observe(val)
+  		// 递归子属性
+  		observe(val)
 		let dp = new Dep()
 		Object.defineProperty(obj, key, {
 			enumerable: true,
